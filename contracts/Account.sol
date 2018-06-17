@@ -8,6 +8,8 @@ contract Account is Ownable {
     mapping (uint => bool) public valueTransferEnabled;
 
     function execute(address destination, uint value, bytes data) external {
+        require(group[sender] > 0);
+
         if (value > 0) {
             require(isValueTransferEnabled(msg.sender));
         }
