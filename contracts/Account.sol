@@ -28,7 +28,8 @@ contract Account is Ownable {
         assembly {
             let x := mload(0x40)
             let d := add(data, 32)
-            result := call(
+
+            call(
                 sub(gas, 34710),
                 destination,
                 value,
