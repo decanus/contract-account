@@ -1,0 +1,30 @@
+{
+  "name": "contract-account",
+  "version": "1.0.0",
+  "author": "Dean Eigenmann <dean@tokenate.io>",
+  "license": "GPL-3.0",
+  "scripts": {
+    "test": "truffle test",
+    "lint": "solium --dir ./contracts",
+    "coverage": "sh scripts/coverage.sh"
+  },
+  "files": [
+    "contracts/",
+    "truffle.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/decanus/contract-account.git"
+  },
+  "devDependencies": {
+    "solidity-coverage": "^0.3.5",
+    "solium": "^1.1.6",
+    "truffle": "^4.1.7"
+  },
+  "keywords": [
+    "solidity",
+    "ethereum",
+    "smart",
+    "contracts"
+  ]
+}
