@@ -21,15 +21,16 @@ contract Account is Ownable {
         return valueTransferEnabled[group[sender]];
     }
 
-    function executeCall(address destination, uint value, bytes data) internal {
+    function executeCall(address destination, uint value, bytes data) internal returns (bool) {
 
         uint length = data.length;
+        bool result;
 
         assembly {
             let x := mload(0x40)
             let d := add(data, 32)
 
-            call(
+            result := call(
                 sub(gas, 34710),
                 destination,
                 value,
@@ -39,6 +40,8 @@ contract Account is Ownable {
                 0
             )
         }
+
+        return result;
     }
 
 }
