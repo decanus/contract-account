@@ -1,6 +1,8 @@
 pragma solidity ^0.4.18;
 
-contract Account {
+import "./Ownership/Ownable.sol"
+
+contract Account is Ownable {
 
     mapping (address => uint) public group;
     mapping (uint => bool) public valueTransferEnabled;
