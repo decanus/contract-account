@@ -8,7 +8,7 @@ contract Account is Ownable {
     mapping (uint => bool) public valueTransferEnabled;
 
     function execute(address destination, uint value, bytes data) external {
-        require(group[sender] > 0);
+        require(group[msg.sender] > 0);
 
         if (value > 0) {
             require(isValueTransferEnabled(msg.sender));
@@ -17,6 +17,14 @@ contract Account is Ownable {
         // @todo do data and destination checks
 
         executeCall(destination, value, data);
+    }
+
+    function setGroup(address addr, uint _group) external onlyOwner {
+        group[addr] = _group;
+    }
+
+    function setValueTransferForGroup(uint _group, bool enabled) external onlyOwner {
+        valueTransferEnabled[_group] = enabled;
     }
 
     function isValueTransferEnabled(address sender) public view returns (bool) {
