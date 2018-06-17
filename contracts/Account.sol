@@ -14,14 +14,14 @@ contract Account is Ownable {
 
         // @todo do data and destination checks
 
-        call(destination, value, data);
+        executeCall(destination, value, data);
     }
 
     function isValueTransferEnabled(address sender) public view returns (bool) {
         return valueTransferEnabled[group[sender]];
     }
 
-    function call(address destination, uint value, bytes data) internal {
+    function executeCall(address destination, uint value, bytes data) internal {
 
         uint length = data.length;
 
