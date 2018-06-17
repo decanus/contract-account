@@ -1,6 +1,6 @@
 pragma solidity ^0.4.18;
 
-import "./Ownership/Ownable.sol"
+import "./Ownership/Ownable.sol";
 
 contract Account is Ownable {
 
